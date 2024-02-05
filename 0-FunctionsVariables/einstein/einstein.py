@@ -1,7 +1,4 @@
 def main():
-    x = int(input("Enter the mass"))
-    y = (x * 300000000) ** 2
-    print(y)
-
-
+    m = float(input("Enter mass: "))
+    print("E=",int(m * 300000000 * 300000000),"Joules")
 main()

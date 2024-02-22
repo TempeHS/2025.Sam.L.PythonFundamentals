@@ -11,8 +11,9 @@ while prompt:
 
     print(f"Player Choice: {player}")
     print(f"Computer choice: {computer_choice}")
-
-    if player == computer_choice:
+    if player != options:
+        print("Try again!")
+    elif player == computer_choice:
         print("Tie")
     elif player == "rock" and computer_choice == "scissor":
         print("You win")

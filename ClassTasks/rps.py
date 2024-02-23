@@ -1,8 +1,8 @@
 import random
 
-prompt = True
-
-while prompt:
+game_played = 0
+while game_played <= 2:
+    game_played += 1
     options = ["paper", "rock", "scissor"]
     player = None
 
@@ -11,8 +11,8 @@ while prompt:
 
     print(f"Player Choice: {player}")
     print(f"Computer choice: {computer_choice}")
-    if player != options:
-        print("Try again!")
+    if not player in options:
+        game_played = 0
     elif player == computer_choice:
         print("Tie")
     elif player == "rock" and computer_choice == "scissor":
@@ -23,7 +23,4 @@ while prompt:
         print("You win")
     else:
         print("Computer win")
-    play_again = input("You want to player again? (y/n):").lower()
-    if not play_again == "y":
-        prompt = False
 print("GOOD GAME, GG")

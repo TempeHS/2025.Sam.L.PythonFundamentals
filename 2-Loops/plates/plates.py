@@ -5,6 +5,7 @@ def main():
     else:
         print("Invalid")
 
+
 def is_valid(s):
     # Set the flag to True
     valid_check = True

@@ -1,11 +1,15 @@
 def main():
-    user_texts = input("Input: ")
-    print("Output:", end="")
-    for letter in user_texts:
+    user_input = input("Input: ")
+    shorten(user_input)
+
+
+def shorten(word):
+    shortened = ""
+    for letter in word:
         if not letter.lower() in ["a", "e", "i", "o", "u"]:
-            print(letter, end="")
+            shortened += letter
+    return shortened
 
-    print()
 
-
-main()
+if __name__ == "__main__":
+    main()

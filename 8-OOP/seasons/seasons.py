@@ -1,38 +1,39 @@
-from datetime import date
-from datetime import timedelta
 import sys
+import inflect
+
+p = inflect.engine()
+from datetime import date, datetime
 
 
+# piyushgopal
 def main():
+    birthdate = input("Date of Birth: ")
+    validDate = date_validate(birthdate)
+    days_difference = calc_difference(validDate)
+    output = add_text(days_difference)
+    print(output)
+
+
+def date_validate(birthdate):
     try:
-        date_ob = get_dates()
-        date_ob = date(date_ob[0], date_ob[1], date_ob[2])
-        print(date_ob)
+        input = date.fromisoformat(birthdate)
+        return input
     except ValueError:
-        print("Invalid date")
-        sys.exit(1)
+        sys.exit("Invalid date")
 
 
-# def get_date():
-# year = int(input("Enter year:"))
-# month = int(input("Enter month:"))
-# day = int(input("Enter day:"))
-# return year, month, day
+# calc difference and convert from days to minutes
+def calc_difference(days):
+    today = date.today()
+    daysDiff = today - days
+    daysDiff.days * 24 * 60
+    return daysDiff.days * 24 * 60
 
 
-def get_dates():
-    try:
-        year, month, day = sys.argv[1:]
-        return int(year), int(month), int(day)
-    except ValueError:
-        sys.exit(1)
-
-
-def convert_min():
-    # 1 year = 365 x 24 x 60 = 525,600
-    # leap year = 1 x 24 x 60 = 1440 extra minutes
-    year = timedelta(minutes=525600)
-    year
+# convert minutes to text
+def add_text(text):
+    text = p.number_to_words(text, andword="")
+    return text.capitalize() + " minutes"
 
 
 if __name__ == "__main__":

@@ -2,10 +2,9 @@ import sys
 import inflect
 
 p = inflect.engine()
-from datetime import date, datetime
+from datetime import date
 
 
-# piyushgopal
 def main():
     birthdate = input("Date of Birth: ")
     validDate = date_validate(birthdate)

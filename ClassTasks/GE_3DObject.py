@@ -26,17 +26,14 @@ class Square:
 
 
 class TrianglePy:
-    def __init__(self, pi, radius):
+    def __init__(self, height, length):
         if not int:
             raise ValueError("Length, width, and height must be integers")
-        self.length = length
-        self.width = width
         self.height = height
-        self.volume = length * width * height
-        self.area = length * width
+        self.length = length
 
     @classmethod
-    def square_dimen(cls):
+    def square_dimen(cls, length, width, height):
         length = int(input("Length of square is: "))
         width = int(input("Width of square is: "))
         height = int(input("Height of square is: "))
@@ -58,5 +55,7 @@ class Sphere:
     @staticmethod
     def pi_num(pi):
         return pi == 3.14
-    
+
     @classmethod
+    def from_sAreaNvolume(cls, pi, radius):
+        return cls(area=4 * pi * radius * 2, volume=4 / 3 * pi * radius * 3)

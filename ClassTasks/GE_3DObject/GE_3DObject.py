@@ -11,20 +11,14 @@ class Shape:
     def get_center(self):
         return (self.x, self.y, self.z)
 
-    def get_cross_section_area(self):
-        raise NotImplementedError()
+    def set_locX(self):
+        self.x = int(input("Set new X: "))
 
-    def get_cross_section_perimeter(self):
-        raise NotImplementedError()
+    def set_locY(self):
+        self.y = int(input("Set new Y: "))
 
-    def get_surface_area(self):
-        raise NotImplementedError()
-
-    def get_volume(self):
-        raise NotImplementedError()
-
-    def get_surface_count(self):
-        raise NotImplementedError()
+    def set_locZ(self):
+        self.z = int(input("Set new Z: "))
 
 
 class TriangularPyramid(Shape):
@@ -94,7 +88,7 @@ class Sphere(Shape):
 # Instantiate a sphere (20-diameter circle)
 sphere = Sphere("blue", 10, 0, 10, 10)
 
-# Print sphere properties
+# Print sphere properties\
 print(f"Sphere:")
 print(f"Coordinates: {sphere.get_center()}")
 print(f"Color: {sphere.color}")
